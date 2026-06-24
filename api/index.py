@@ -29,7 +29,7 @@ def s1(pw:s1Input):
 @app.get("/s1")
 def s1_hint():
     return {
-        "hint" : "고급 암호화 표준 - 2^8 - ECB. I Give an 'Ciphertext' and 'key' to You. But. Not Korean. Find 'Key' and decrypt 'Ciphertext' to get 'Plaintext'."
+        "hint" : "고급 암호화 표준 - 2^8 - ECB. 2 Times. I Give an 'Ciphertext' and 'key' to You. But. Not Korean. Find 'Key' and decrypt 'Ciphertext' to get 'Plaintext'."
     }
 
 if __name__ == "__main__":

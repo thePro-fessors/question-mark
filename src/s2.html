@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <title>?</title>
+</head>
+
+<body>
+    <div class="container">
+        <p>AutzxGnrvyO9fieVd3D6Ww==</p>
+    </div>
+    <div class="input">
+        <p>Password is</p>
+        <input type="text" class="inputs" id="Password">
+    </div>
+</body>
+<script>
+    console.log("This page is nothing have anything.");
+    console.log("Find answer");
+
+    document.addEventListener("selectstart", (e) => {
+        e.preventDefault();
+    })
+    document.addEventListener("dragstart", (e) => {
+        e.preventDefault();
+    })
+
+    // document.addEventListener("keydown", (e) => {
+    //     if (e.key === "Enter") {
+    //         let pw = document.getElementById("Password").value;
+    //         fetch("http://localhost:6974/s1", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             },
+    //             body: JSON.stringify({ pw: pw })
+    //         }).then(res => res.json()).then(data => {
+    //             if (data.pass) {
+    //                 sessionStorage.setItem("s1_pass", data.key);
+    //                 window.location.href = "/s2";
+    //             }
+    //         })
+    //     }
+    // })
+    function neo(answer) {
+        const stack = new Error().stack;
+
+        if (stack.includes("eval")) {
+            fetch("http://localhost:6974/s2", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ answer: answer })
+            }).then(res => res.json()).then(data => {
+                if (data.pass) {
+                    sessionStorage.setItem("s2_pass", data.key);
+                    window.location.href = "/s3";
+                }
+            })
+            return;
+        }
+
+        const lines = stack.split("\n");
+        const caller = lines[2] || "";
+
+        if (caller.includes("<anonymous>" || caller.includes("VM"))) {
+            console.log("It is not correct answer.");
+            return;
+        } else {
+            console.log("WTF?");
+        }
+    }
+
+</script>
+
+</html>
